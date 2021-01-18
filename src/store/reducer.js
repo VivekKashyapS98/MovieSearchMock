@@ -2,7 +2,8 @@ import {
   REMOVE_MOVIE,
   SET_MOVIES,
   SORT_ALPHA,
-  SORT_NUMER
+  SORT_YEAR,
+  SORT_ID
 } from "./actionTypes";
 
 let store = {
@@ -10,9 +11,22 @@ let store = {
   total: 0
 };
 
-const sortAlpha = () => {};
+const sortAlpha = (movies) => {
+  let sorted = movies.sort((a, b) => a.imdbID.localeCompare(b.imdbID));
+  console.log(sorted);
+  return sorted;
+};
 
-const sortNumer = () => {};
+const sortNumer = (movies, type) => {
+  let sortedMovies = null;
+  if (type === SORT_YEAR) {
+    sortedMovies = movies.sort((a, b) => (a.Year > b.Year ? 1 : -1));
+  } else if (type === SORT_ID) {
+    sortedMovies = movies.sort((a, b) => (a.Year > b.Year ? 1 : -1));
+  }
+  console.log(sortedMovies);
+  return sortedMovies;
+};
 
 export default (state = store, action) => {
   switch (action.type) {
@@ -34,10 +48,16 @@ export default (state = store, action) => {
         movies: movieSortedAlpha,
         total: state.total
       };
-    case SORT_NUMER:
-      let movieSortedNumer = sortNumer(state.movies);
+    case SORT_YEAR:
+      let movieSortedYear = sortNumer(state.movies, SORT_YEAR);
       return {
-        movies: movieSortedNumer,
+        movies: movieSortedYear,
+        total: state.total
+      };
+    case SORT_ID:
+      let movieSortedID = sortNumer(state.movies, SORT_ID);
+      return {
+        movies: movieSortedID,
         total: state.total
       };
     default:

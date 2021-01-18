@@ -1,4 +1,10 @@
-import { REMOVE_MOVIE, SET_MOVIES } from "./actionTypes";
+import {
+  REMOVE_MOVIE,
+  SET_MOVIES,
+  SORT_ALPHA,
+  SORT_ID,
+  SORT_YEAR
+} from "./actionTypes";
 
 export const fetchMovies = (queryString) => (dispatch) => {
   return new Promise((resolve, reject) => {
@@ -26,4 +32,24 @@ export const removeMovie = (movie) => (dispatch) => {
       movie
     }
   });
+};
+
+export const sortAlpha = () => (dispatch) => {
+  dispatch({
+    type: SORT_ALPHA
+  });
+  console.log("dispatched");
+};
+
+export const sortNumer = (type) => (dispatch) => {
+  if (type === "year") {
+    dispatch({
+      type: SORT_YEAR
+    });
+  } else if (type === "ID") {
+    dispatch({
+      type: SORT_ID
+    });
+  }
+  console.log("dispatched");
 };

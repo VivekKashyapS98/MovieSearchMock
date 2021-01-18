@@ -6,12 +6,13 @@ export default function MovieCard({ movie, deleteMovie }) {
       <td width="500px">{movie.Title}</td>
       <td width="100px">{movie.Year}</td>
       <td>{movie.imdbID}</td>
-      <input
+      <button
         type="button"
-        value="x"
         className="movie-del"
         onClick={() => deleteMovie(movie)}
-      />
+      >
+        x
+      </button>
     </tr>
   );
 }

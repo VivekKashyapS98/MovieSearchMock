@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { removeMovie } from "../store/actions";
+import { removeMovie, sortAlpha, sortNumer } from "../store/actions";
 import MovieCard from "./movieCard";
 
 function MovieList(props) {
+  const [val, setVal] = useState(0);
   const deleteMovie = (movie) => {
     props.removeMovie(movie);
   };
@@ -18,9 +19,17 @@ function MovieList(props) {
     );
   });
 
-  const sortNames = () => {};
+  const sortNames = () => {
+    console.log("Clicked");
+    props.sortAlpha();
+    setVal(val + 1);
+  };
 
-  const sortNumerical = () => {};
+  const sortNumerical = (type) => {
+    console.log("Clicked");
+    props.sortNumer(type);
+    setVal(val + 1);
+  };
 
   return (
     <table width="100%" height="50%" className="movie-list">
@@ -56,7 +65,7 @@ function MovieList(props) {
               height="16"
               fill="currentColor"
               viewBox="0 0 16 16"
-              onClick={() => sortNumerical()}
+              onClick={() => sortNumerical("year")}
             >
               <path d="M12.438 1.668V7H11.39V2.684h-.051l-1.211.859v-.969l1.262-.906h1.046z" />
               <path
@@ -76,7 +85,7 @@ function MovieList(props) {
               height="16"
               fill="currentColor"
               viewBox="0 0 16 16"
-              onClick={() => sortNumerical()}
+              onClick={() => sortNumerical("ID")}
             >
               <path d="M12.438 1.668V7H11.39V2.684h-.051l-1.211.859v-.969l1.262-.906h1.046z" />
               <path
@@ -98,4 +107,6 @@ const mapStateToProps = (state) => ({
   movies: state.movies
 });
 
-export default connect(mapStateToProps, { removeMovie })(MovieList);
+export default connect(mapStateToProps, { removeMovie, sortAlpha, sortNumer })(
+  MovieList
+);
