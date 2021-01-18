@@ -1,0 +1,78 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+th {
+  margin: 0 50px;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.search {
+  width: 80%;
+  height: 30px;
+  padding: 5px 20px;
+  font-size: 20px;
+  background-color: whitesmoke;
+  border: none;
+}
+
+.search-btn {
+  color: white;
+  height: 40px;
+  font-size: 20px;
+  border: none;
+  text-decoration: none;
+  background-color: rgb(78, 78, 251);
+}
+
+.movie-list {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-card {
+  width: 80%;
+  height: 30px;
+  background-color: whitesmoke;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.movie-del {
+  height: 20px;
+  width: 20px;
+  padding: 0 1px 5px 0;
+  text-align: center;
+  font-weight: bolder;
+  border-radius: 50%;
+  background-color: white;
+  border: none;
+  text-decoration: none;
+}
+
+.movie-del:hover {
+  background-color: lightgray;
+}
+
+.movie-head {
+  width: 90%;
+  height: 30px;
+  background-color: white;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
