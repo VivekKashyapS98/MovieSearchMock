@@ -9,6 +9,7 @@ function MovieList(props) {
     props.removeMovie(movie);
   };
 
+  //movie list...
   const movie_list = props.movies.map((item, index) => {
     return (
       <MovieCard

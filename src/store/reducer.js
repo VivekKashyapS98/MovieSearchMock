@@ -11,12 +11,14 @@ let store = {
   total: 0
 };
 
+//Sort an array of objects based on their nomes, alphabetically...
 const sortAlpha = (movies) => {
   let sorted = movies.sort((a, b) => a.imdbID.localeCompare(b.imdbID));
   console.log(sorted);
   return sorted;
 };
 
+//Sort the array of objects based on the Year and ID...
 const sortNumer = (movies, type) => {
   let sortedMovies = null;
   if (type === SORT_YEAR) {
@@ -28,6 +30,7 @@ const sortNumer = (movies, type) => {
   return sortedMovies;
 };
 
+//Reducer Function...
 export default (state = store, action) => {
   switch (action.type) {
     case SET_MOVIES:

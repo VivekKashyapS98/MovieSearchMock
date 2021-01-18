@@ -6,6 +6,7 @@ import { configureStore } from "./store";
 
 import "./styles.css";
 
+//Configure the store..
 const store = configureStore();
 
 export default function App() {

@@ -6,6 +6,7 @@ import {
   SORT_YEAR
 } from "./actionTypes";
 
+//Fetch movies from the API...
 export const fetchMovies = (queryString) => (dispatch) => {
   return new Promise((resolve, reject) => {
     fetch(
@@ -25,6 +26,7 @@ export const fetchMovies = (queryString) => (dispatch) => {
   });
 };
 
+//Remove the clicked movie...
 export const removeMovie = (movie) => (dispatch) => {
   dispatch({
     type: REMOVE_MOVIE,
